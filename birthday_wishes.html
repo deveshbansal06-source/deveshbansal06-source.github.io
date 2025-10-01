@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Special Birthday Celebration for Dad! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating balloons animation */
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .balloon:nth-child(1) {
+            background: #ff6b6b;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .balloon:nth-child(2) {
+            background: #4ecdc4;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            background: #45b7d1;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(4) {
+            background: #f9ca24;
+            left: 90%;
+            animation-delay: 0.5s;
+        }
+
+        .balloon:nth-child(5) {
+            background: #6c5ce7;
+            left: 70%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+            }
+        }
+
+        /* Confetti animation */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        .confetti:nth-child(even) {
+            background: #4ecdc4;
+            animation-delay: 0.5s;
+        }
+
+        .confetti:nth-child(3n) {
+            background: #f9ca24;
+            animation-delay: 1s;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            animation: slideIn 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .birthday-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #6c5ce7);
+            animation: rainbow 2s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #333;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .emoji {
+            font-size: 3rem;
+            display: inline-block;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: #555;
+            line-height: 1.6;
+            margin: 30px 0;
+            animation: fadeIn 2s ease-in 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .wishes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            animation: fadeIn 2s ease-in 1s both;
+        }
+
+        .wish-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.8s ease-out forwards;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .wish-card:nth-child(1) { animation-delay: 1.2s; }
+        .wish-card:nth-child(2) { animation-delay: 1.4s; }
+        .wish-card:nth-child(3) { animation-delay: 1.6s; }
+
+        .wish-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wish-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .wish-text {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .interactive-section {
+            margin-top: 40px;
+            animation: fadeIn 2s ease-in 1.8s both;
+        }
+
+        .birthday-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            font-family: inherit;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .birthday-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .birthday-button:active {
+            transform: translateY(-1px);
+        }
+
+        .surprise-message {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            font-size: 1.3rem;
+            color: #333;
+            font-weight: bold;
+            display: none;
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .heart {
+            color: #e74c3c;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            14% {
+                transform: scale(1.3);
+            }
+            28% {
+                transform: scale(1);
+            }
+            42% {
+                transform: scale(1.3);
+            }
+            70% {
+                transform: scale(1);
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 1rem;
+            color: #666;
+            animation: fadeIn 2s ease-in 2s both;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .birthday-card {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .wishes-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .birthday-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkle 2s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Cake animation */
+        .birthday-cake {
+            font-size: 4rem;
+            animation: cake-bounce 3s ease-in-out infinite;
+            cursor: pointer;
+            margin: 20px 0;
+            display: inline-block;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        }
+
+        @keyframes cake-bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+
+        /* Memory gallery */
+        .memory-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            animation: fadeIn 2s ease-in 2.5s both;
+        }
+
+        .memory-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-8px) rotate(2deg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .memory-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .memory-text {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Quote of the day */
+        .quote-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in 3s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-section::before {
+            content: '"';
+            font-size: 8rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .quote-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            font-weight: bold;
+            opacity: 0.9;
+        }
+
+        /* Age counter */
+        .age-celebration {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in 1.5s both;
+        }
+
+        .age-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .age-text {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Countdown timer for next birthday */
+        .countdown {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in 4s both;
+        }
+
+        .countdown-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .countdown-display {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 15px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .countdown-number {
+            font-size: 1.5rem;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating balloons -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <!-- Confetti -->
+    <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="confetti" style="left: 20%; animation-delay: 0.3s;"></div>
+    <div class="confetti" style="left: 30%; animation-delay: 0.6s;"></div>
+    <div class="confetti" style="left: 40%; animation-delay: 0.9s;"></div>
+    <div class="confetti" style="left: 50%; animation-delay: 1.2s;"></div>
+    <div class="confetti" style="left: 60%; animation-delay: 1.5s;"></div>
+    <div class="confetti" style="left: 70%; animation-delay: 1.8s;"></div>
+    <div class="confetti" style="left: 80%; animation-delay: 2.1s;"></div>
+    <div class="confetti" style="left: 90%; animation-delay: 2.4s;"></div>
+
+    <div class="container">
+        <div class="birthday-card">
+            <h1>
+                🎊 Happy Birthday Dad! 🎊
+                <span class="emoji">🎉</span>
+            </h1>
+            
+            <div class="birthday-cake" onclick="blowCandles()" title="Click to blow out the candles!">🎂</div>
+            
+            <div class="age-celebration">
+                <div class="age-number" id="ageDisplay">Another Amazing Year!</div>
+                <div class="age-text">Celebrating your wisdom, love, and all the joy you bring! 🌟</div>
+            </div>
+            
+            <div class="message">
+                Today marks another chapter in the incredible story of an amazing father! 📖✨<br>
+                You've been my hero, my guide, my role model, and my biggest cheerleader. 🦸‍♂️<br>
+                Thank you for all the life lessons, dad jokes, and unconditional love that has shaped who I am today.<br>
+                Here's to celebrating YOU and all the wonderful memories we've created together!
+                <span class="heart">❤️</span>
+            </div>
+
+            <div class="wishes-container">
+                <div class="wish-card">
+                    <span class="wish-icon">🎂</span>
+                    <div class="wish-text">May your day be filled with happiness and your year with boundless joy!</div>
+                </div>
+                <div class="wish-card">
+                    <span class="wish-icon">🌟</span>
+                    <div class="wish-text">Wishing you perfect health, abundant blessings, and dreams come true!</div>
+                </div>
+                <div class="wish-card">
+                    <span class="wish-icon">🎈</span>
+                    <div class="wish-text">Here's to another year of incredible adventures and precious memories!</div>
+                </div>
+            </div>
+
+            <div class="memory-gallery">
+                <div class="memory-card">
+                    <span class="memory-emoji">👨‍👧‍👦</span>
+                    <div class="memory-text">World's Best Dad</div>
+                </div>
+                <div class="memory-card">
+                    <span class="memory-emoji">🏆</span>
+                    <div class="memory-text">My Personal Hero</div>
+                </div>
+                <div class="memory-card">
+                    <span class="memory-emoji">🎓</span>
+                    <div class="memory-text">Life's Greatest Teacher</div>
+                </div>
+                <div class="memory-card">
+                    <span class="memory-emoji">😄</span>
+                    <div class="memory-text">Master of Dad Jokes</div>
+                </div>
+                <div class="memory-card">
+                    <span class="memory-emoji">💪</span>
+                    <div class="memory-text">Source of Strength</div>
+                </div>
+                <div class="memory-card">
+                    <span class="memory-emoji">🤗</span>
+                    <div class="memory-text">Endless Support</div>
+                </div>
+            </div>
+
+            <div class="quote-section">
+                <div class="quote-text" id="dailyQuote">"A father is someone you look up to no matter how tall you grow."</div>
+                <div class="quote-author">- Unknown</div>
+            </div>
+
+            <div class="countdown">
+                <div class="countdown-title">⏰ Time Until Your Next Birthday Adventure! ⏰</div>
+                <div class="countdown-display">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">365</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interactive-section">
+                <button class="birthday-button" onclick="showSurprise()">🎁 Special Message</button>
+                <button class="birthday-button" onclick="playBirthdaySong()">🎵 Musical Celebration</button>
+                <button class="birthday-button" onclick="createFireworks()">🎆 Grand Fireworks</button>
+                <button class="birthday-button" onclick="changeQuote()">💭 Inspirational Quote</button>
+                <button class="birthday-button" onclick="rainbowMode()">🌈 Rainbow Magic</button>
+                
+                <div class="surprise-message" id="surpriseMessage">
+                    🌟 Dad, you're not just getting older, you're leveling up in awesomeness! 🎮<br><br>
+                    Every year with you brings new adventures, more wisdom, and countless reasons to smile. 😊<br>
+                    You've taught me that being a great father isn't just about providing, but about being present, caring, and showing love in countless little ways. 💝<br><br>
+                    Today we celebrate not just your birthday, but the amazing person you are every single day! 🎊<br>
+                    Here's to more dad jokes, more life lessons, and more incredible memories together! 🥳
+                </div>
+            </div>
+
+            <div class="footer">
+                Crafted with endless <span class="heart">❤️</span> and appreciation for the world's most incredible dad!
+                <br>
+                <small>© 2024 - A personalized birthday celebration from your loving child 🎈</small>
+                <br>
+                <small>✨ Every click, every animation, every word - all made special just for you! ✨</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Birthday quotes collection
+        const quotes = [
+            { text: "A father is someone you look up to no matter how tall you grow.", author: "Unknown" },
+            { text: "The quality of a father can be seen in the goals, dreams and aspirations he sets not only for himself, but for his family.", author: "Reed Markham" },
+            { text: "A father's love is forever imprinted on his child's heart.", author: "Jennifer Williamson" },
+            { text: "Dad: A son's first hero, a daughter's first love.", author: "Unknown" },
+            { text: "Any man can be a father, but it takes someone special to be a dad.", author: "Anne Geddes" },
+            { text: "The greatest gift I ever had came from God; I call him Dad!", author: "Unknown" }
+        ];
+
+        // Add sparkle effect
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // Create sparkles periodically
+        setInterval(createSparkle, 300);
+
+        // Birthday countdown
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            let nextBirthday = new Date(currentYear + 1, now.getMonth(), now.getDate()); // Next year same date
+            
+            const timeDiff = nextBirthday - now;
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        // Blow candles effect
+        function blowCandles() {
+            const cake = document.querySelector('.birthday-cake');
+            cake.innerHTML = '🎂💨';
+            
+            // Create candle smoke effect
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const smoke = document.createElement('div');
+                    smoke.innerHTML = '💨';
+                    smoke.style.position = 'fixed';
+                    smoke.style.left = '50%';
+                    smoke.style.top = '40%';
+                    smoke.style.fontSize = '1.5rem';
+                    smoke.style.zIndex = '1000';
+                    smoke.style.pointerEvents = 'none';
+                    smoke.style.animation = `smoke-rise-${i} 2s ease-out forwards`;
+                    
+                    // Create unique smoke animation
+                    const smokeStyle = document.createElement('style');
+                    const randomX = (Math.random() - 0.5) * 100;
+                    smokeStyle.textContent = `
+                        @keyframes smoke-rise-${i} {
+                            to {
+                                transform: translate(${randomX}px, -150px);
+                                opacity: 0;
+                            }
+                        }
+                    `;
+                    document.head.appendChild(smokeStyle);
+                    document.body.appendChild(smoke);
+                    
+                    setTimeout(() => {
+                        smoke.remove();
+                        smokeStyle.remove();
+                    }, 2000);
+                }, i * 100);
+            }
+            
+            setTimeout(() => {
+                cake.innerHTML = '🎂';
+            }, 3000);
+        }
+
+        // Change quote function
+        function changeQuote() {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('dailyQuote').textContent = `"${randomQuote.text}"`;
+            document.querySelector('.quote-author').textContent = `- ${randomQuote.author}`;
+            
+            // Add a subtle animation
+            const quoteSection = document.querySelector('.quote-section');
+            quoteSection.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                quoteSection.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Rainbow mode function
+        function rainbowMode() {
+            document.body.style.background = 'linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080)';
+            document.body.style.backgroundSize = '400% 400%';
+            document.body.style.animation = 'rainbow-bg 3s ease infinite';
+            
+            const rainbowStyle = document.createElement('style');
+            rainbowStyle.textContent = `
+                @keyframes rainbow-bg {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+            `;
+            document.head.appendChild(rainbowStyle);
+            
+            setTimeout(() => {
+                document.body.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                document.body.style.animation = '';
+                rainbowStyle.remove();
+            }, 5000);
+        }
+
+        // Show surprise message
+        function showSurprise() {
+            const message = document.getElementById('surpriseMessage');
+            if (message.style.display === 'none' || message.style.display === '') {
+                message.style.display = 'block';
+            } else {
+                message.style.display = 'none';
+            }
+        }
+
+        // Play birthday song (creates musical notes animation)
+        function playBirthdaySong() {
+            const notes = ['🎵', '🎶', '🎼', '🎹'];
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const note = document.createElement('div');
+                    note.innerHTML = notes[Math.floor(Math.random() * notes.length)];
+                    note.style.position = 'fixed';
+                    note.style.left = Math.random() * window.innerWidth + 'px';
+                    note.style.top = window.innerHeight + 'px';
+                    note.style.fontSize = '2rem';
+                    note.style.zIndex = '1000';
+                    note.style.pointerEvents = 'none';
+                    note.style.animation = 'float-up 3s ease-out forwards';
+                    
+                    document.body.appendChild(note);
+                    
+                    setTimeout(() => {
+                        note.remove();
+                    }, 3000);
+                }, i * 200);
+            }
+            
+            // Add the float-up animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float-up {
+                    from {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateY(-100vh);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Create fireworks effect
+        function createFireworks() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#6c5ce7', '#e17055'];
+            
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.style.position = 'fixed';
+                    firework.style.left = Math.random() * window.innerWidth + 'px';
+                    firework.style.top = Math.random() * window.innerHeight + 'px';
+                    firework.style.width = '10px';
+                    firework.style.height = '10px';
+                    firework.style.borderRadius = '50%';
+                    firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    firework.style.zIndex = '1000';
+                    firework.style.animation = 'explode 1s ease-out forwards';
+                    
+                    document.body.appendChild(firework);
+                    
+                    // Create explosion particles
+                    setTimeout(() => {
+                        for (let j = 0; j < 20; j++) {
+                            const particle = document.createElement('div');
+                            particle.style.position = 'fixed';
+                            particle.style.left = firework.style.left;
+                            particle.style.top = firework.style.top;
+                            particle.style.width = '4px';
+                            particle.style.height = '4px';
+                            particle.style.borderRadius = '50%';
+                            particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                            particle.style.zIndex = '1000';
+                            
+                            const angle = (j / 20) * 2 * Math.PI;
+                            const distance = 50 + Math.random() * 100;
+                            const endX = Math.cos(angle) * distance;
+                            const endY = Math.sin(angle) * distance;
+                            
+                            particle.style.animation = `particle-${j} 1s ease-out forwards`;
+                            
+                            // Create unique animation for each particle
+                            const particleStyle = document.createElement('style');
+                            particleStyle.textContent = `
+                                @keyframes particle-${j} {
+                                    to {
+                                        transform: translate(${endX}px, ${endY}px);
+                                        opacity: 0;
+                                    }
+                                }
+                            `;
+                            document.head.appendChild(particleStyle);
+                            
+                            document.body.appendChild(particle);
+                            
+                            setTimeout(() => {
+                                particle.remove();
+                                particleStyle.remove();
+                            }, 1000);
+                        }
+                        firework.remove();
+                    }, 200);
+                }, i * 600);
+            }
+            
+            // Add explode animation
+            const explodeStyle = document.createElement('style');
+            explodeStyle.textContent = `
+                @keyframes explode {
+                    0% {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                    50% {
+                        transform: scale(3);
+                        opacity: 0.8;
+                    }
+                    100% {
+                        transform: scale(0);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(explodeStyle);
+        }
+
+        // Add click effect to wish cards
+        document.querySelectorAll('.wish-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // Create a small celebration
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        createSparkle();
+                    }, i * 50);
+                }
+            });
+        });
+
+        // Welcome animation on load
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 1s ease-in';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add some interactivity to the main heading
+        document.querySelector('h1').addEventListener('click', function() {
+            this.style.color = `hsl(${Math.random() * 360}, 70%, 50%)`;
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createSparkle, i * 100);
+            }
+        });
+    </script>
+</body>
+</html>
